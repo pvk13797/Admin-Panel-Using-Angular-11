@@ -1,0 +1,10 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.card {
+    border-radius: 15px;
+}
+
+.bg-gradient-primary {
+    background-color: rgb(44, 44, 204);
+}
+
