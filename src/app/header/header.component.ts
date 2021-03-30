@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  toggled: boolean=false;
+
+  showMe() {
+    this.toggled = !this.toggled;
+    console.log(this.toggled);
+  }
+
   constructor() { }
 
   ngOnInit(): void {

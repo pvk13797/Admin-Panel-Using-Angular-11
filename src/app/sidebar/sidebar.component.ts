@@ -8,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
 
   title = 'Admin Panel';
+  toggled: boolean=false;
+
+  showMe() {
+    this.toggled = !this.toggled;
+  }
 
   constructor() { }
 

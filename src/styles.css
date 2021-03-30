@@ -2,6 +2,27 @@
 
 @import '~bootstrap-icons/font/bootstrap-icons.css';
 
+a {
+  color: #4e73df;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover {
+  color: #224abe;
+  text-decoration: underline;
+}
+
+a:not([href]):not([class]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:not([href]):not([class]):hover {
+  color: inherit;
+  text-decoration: none;
+}
+
 #wrapper {
   display: flex;
 }
@@ -191,6 +212,10 @@ footer.footer {
 /*-------------footer---------*/
 
 /* New One */
+
+.collapse:not(.show) {
+  display: none;
+}
 
 .navbar-nav {
     display: flex;
@@ -480,8 +505,12 @@ footer.footer {
     border-radius: 0.35rem;
     white-space: nowrap;
   }
+
+  .sidebar .nav-item .collapse .collapse-item {
+    display: none;
+  }
   
-  .sidebar .nav-item .collapse .collapse-inner .collapse-item:hover,
+    .sidebar .nav-item .collapse .collapse-inner .collapse-item:hover,
   .sidebar .nav-item .collapsing .collapse-inner .collapse-item:hover {
     background-color: #fafafa;
   }
@@ -688,6 +717,7 @@ footer.footer {
       -webkit-animation-timing-function: transform cubic-bezier(0.18, 1.25, 0.4, 1), opacity cubic-bezier(0, 1, 0.4, 1);
       animation-timing-function: transform cubic-bezier(0.18, 1.25, 0.4, 1), opacity cubic-bezier(0, 1, 0.4, 1);
     }
+
     .sidebar.toggled .nav-item .collapse .collapse-inner {
       box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
       border-radius: 0.35rem;
@@ -700,6 +730,7 @@ footer.footer {
     .sidebar.toggled .nav-item .collapsing {
       margin: 0;
     }
+
     .sidebar.toggled .nav-item:last-child {
       margin-bottom: 1rem;
     }
