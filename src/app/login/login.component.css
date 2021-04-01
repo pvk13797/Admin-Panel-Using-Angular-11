@@ -1,10 +1,19 @@
 .layout {
     border: 0px solid grey;
-    margin: 5px;
+    margin: 350px;
     padding: 50px;
 }
 
-h1 {
+h2 {
     text-align: center;
-    padding: 5px;
+    margin-top: 10px;
+    padding-top: 15px;
+}
+
+@media (max-width: 1024px) {
+    .layout {
+        border: 0px solid grey;
+        margin: 5px;
+        padding: 50px;
+    }
 }

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  title = 'Signin';
+  title = 'Sign-in';
 
   username: string;
   password: string;
