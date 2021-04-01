@@ -1,0 +1,30 @@
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <!-- End of sidebar -->
+  
+    <!-- Page-Content-Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column toggled">
+      <div id="content">
+        <div class="container-fluid p-0 px-lg-0 px-md-0">
+  
+          <!-- Topbar -->
+          <app-header></app-header>
+          <!-- End of Topbar -->
+  
+          <!-- Begin Page Content -->
+          <div class="container-fluid px-lg-4">
+              <router-outlet></router-outlet>
+          </div>
+          <!-- End Of Page Content -->
+  
+        </div>
+        <app-footer></app-footer>
+      </div>
+    </div>
+    
+    <!-- End Of Page-Content-Wrapper -->
+  </div>
+  <!-- End Of wrapper -->

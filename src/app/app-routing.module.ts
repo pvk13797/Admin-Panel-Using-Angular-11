@@ -7,28 +7,96 @@ import { CardsComponent } from './cards/cards.component';
 import { ChartsComponent } from './charts/charts.component';
 import { ColorsComponent } from './colors/colors.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
+import { LoginComponent } from './login/login.component';
 import { OtherComponent } from './other/other.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { TablesComponent } from './tables/tables.component';
 
+import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import { LoginOnlyLayoutComponent } from './layout/login-only-layout/login-only-layout.component'
+
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'header', component: HeaderComponent},
-  { path: 'footer', component: FooterComponent},
-  { path: 'sidebar', component: SidebarComponent},
-  { path: 'dashboard', component: DashboardComponent},
-  { path: 'tables', component: TablesComponent},
-  { path: 'buttons', component: ButtonsComponent},
-  { path: 'cards', component: CardsComponent},
-  { path: 'colors', component: ColorsComponent},
-  { path: 'borders', component: BordersComponent},
-  { path: 'animations', component: AnimationsComponent},
-  { path: 'other', component: OtherComponent},
-  { path: 'charts', component: ChartsComponent},
-  { path: '**', component: PageNotFoundComponent}
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  
+  { 
+    path: 'login', 
+    component: LoginOnlyLayoutComponent,
+    children: [
+      { path: '', component: LoginComponent}
+    ]
+  },
+
+  { 
+    path: 'dashboard', 
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: DashboardComponent}
+    ]
+  },
+
+  { path: 'tables', 
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: TablesComponent}
+    ]
+  },
+
+  { path: 'buttons', 
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: ButtonsComponent}
+    ]
+  },
+
+  { path: 'cards', 
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: CardsComponent}
+    ]
+  },
+
+  { path: 'colors', 
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: ColorsComponent}
+    ]
+  },
+
+  { path: 'borders', 
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: BordersComponent}
+    ]
+  },
+
+  { path: 'animations', 
+    component: AnimationsComponent,
+    children: [
+      { path: '', component: AnimationsComponent}
+    ]
+  },
+
+  { path: 'other', 
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: OtherComponent}
+    ]
+  },
+
+  { path: 'charts', 
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: ChartsComponent}
+    ]
+  },
+
+  { path: '**', 
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: PageNotFoundComponent}
+    ]
+  }
+
 ];
 
 @NgModule({
@@ -36,4 +104,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [ HeaderComponent, FooterComponent, SidebarComponent, DashboardComponent, TablesComponent, ButtonsComponent, CardsComponent, ColorsComponent, BordersComponent, AnimationsComponent, OtherComponent, ChartsComponent, PageNotFoundComponent]
+export const routingComponents = [ LoginComponent, DashboardComponent, TablesComponent, ButtonsComponent, CardsComponent, ColorsComponent, BordersComponent, AnimationsComponent, OtherComponent, ChartsComponent, PageNotFoundComponent]
