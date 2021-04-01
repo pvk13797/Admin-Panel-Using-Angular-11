@@ -1,4 +1,4 @@
-:link: [Live Demo](https://pvk13797.github.io/Admin-Panel-Using-Angular-11/login)
+:link: [Live Demo](https://pvk13797.github.io/Admin-Panel-Using-Angular-11/)
 
 # Admin
 
