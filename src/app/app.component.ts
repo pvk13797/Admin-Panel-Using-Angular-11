@@ -15,10 +15,13 @@ export class AppComponent {
   }
 
   ngOnInit() {
-
-/*    $("#sidebarToggleTop").on('click', function() {
+  /*   $("#sidebarToggleTop").on('click', function() {
     $("body").toggleClass("sidebar-toggled");
     $(".sidebar").toggleClass("toggled");
   });  */
- 
-}}
+  }
+
+}
+
+
+

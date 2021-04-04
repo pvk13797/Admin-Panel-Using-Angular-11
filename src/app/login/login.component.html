@@ -1,16 +1,11 @@
 <div class="container">
    <h2>{{ title | uppercase }}</h2>
-   <form class="layout mt-5 shadow" [formGroup]="signInForm" (ngSubmit)="onSubmit()" novalidate>
+   <form class="layout mt-5 shadow" #loginForm="ngForm" (ngSubmit)="onFormSubmit(loginForm)" novalidate>
       <div class="row">
          <div class="col-xl-12">
             <div class="form-group">
                <label>Username</label>
-               <input type="text" formControlName="username" class="form-control"
-                  [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-               <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                  <div *ngIf="f.username.errors.required">Name is required</div>
-                  <div *ngIf="f.username.errors.minlength">Username must be at least 4 characters</div>
-               </div>
+               <input type="text" name="username" class="form-control" ngModel required/>
             </div>
          </div>
       </div>
@@ -18,14 +13,10 @@
          <div class="col-xl-12">
             <div class="form-group">
                <label>Password</label>
-               <input type="password" formControlName="password" class="form-control"
-                  [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-               <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                  <div *ngIf="f.password.errors.required">Password is required</div>
-               </div>
+               <input type="password" name="password" class="form-control" ngModel required/>
             </div>
          </div>
       </div>
-      <button (click)="login()" type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
    </form>
 </div>

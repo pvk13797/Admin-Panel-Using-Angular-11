@@ -13,7 +13,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { TablesComponent } from './tables/tables.component';
 
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
-import { LoginOnlyLayoutComponent } from './layout/login-only-layout/login-only-layout.component'
+import { LoginOnlyLayoutComponent } from './layout/login-only-layout/login-only-layout.component';
+import { AuthGuardService } from './auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -30,63 +31,63 @@ const routes: Routes = [
     path: 'dashboard', 
     component: MainLayoutComponent,
     children: [
-      { path: '', component: DashboardComponent}
+      { path: '', component: DashboardComponent, canActivate: [AuthGuardService]}
     ]
   },
 
   { path: 'tables', 
     component: MainLayoutComponent,
     children: [
-      { path: '', component: TablesComponent}
+      { path: '', component: TablesComponent, canActivate: [AuthGuardService]}
     ]
   },
 
   { path: 'buttons', 
     component: MainLayoutComponent,
     children: [
-      { path: '', component: ButtonsComponent}
+      { path: '', component: ButtonsComponent, canActivate: [AuthGuardService]}
     ]
   },
 
   { path: 'cards', 
     component: MainLayoutComponent,
     children: [
-      { path: '', component: CardsComponent}
+      { path: '', component: CardsComponent, canActivate: [AuthGuardService]}
     ]
   },
 
   { path: 'colors', 
     component: MainLayoutComponent,
     children: [
-      { path: '', component: ColorsComponent}
+      { path: '', component: ColorsComponent, canActivate: [AuthGuardService]}
     ]
   },
 
   { path: 'borders', 
     component: MainLayoutComponent,
     children: [
-      { path: '', component: BordersComponent}
+      { path: '', component: BordersComponent, canActivate: [AuthGuardService]}
     ]
   },
 
   { path: 'animations', 
     component: AnimationsComponent,
     children: [
-      { path: '', component: AnimationsComponent}
+      { path: '', component: AnimationsComponent, canActivate: [AuthGuardService]}
     ]
   },
 
   { path: 'other', 
     component: MainLayoutComponent,
     children: [
-      { path: '', component: OtherComponent}
+      { path: '', component: OtherComponent, canActivate: [AuthGuardService]}
     ]
   },
 
   { path: 'charts', 
     component: MainLayoutComponent,
     children: [
-      { path: '', component: ChartsComponent}
+      { path: '', component: ChartsComponent, canActivate: [AuthGuardService]}
     ]
   },
 

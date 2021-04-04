@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +12,12 @@ export class LoginComponent implements OnInit {
 
   title = 'Sign-in';
 
+  invalidCredentialMsg: string;
   username: string;
   password: string;
+  retUrl: string="login";
 
-  signInForm: FormGroup;
+  /* signInForm: FormGroup;
   submitted = false;
 
   login() {
@@ -27,31 +30,49 @@ export class LoginComponent implements OnInit {
     else {
       alert("Invalid credentials");
     } 
-  }
+  }  */
 
-  constructor(private router: Router, private fb: FormBuilder) { }
+  constructor(private router: Router, 
+              private fb: FormBuilder, 
+              private authService: AuthService,
+              private activatedRoute: ActivatedRoute) { }
 
-  get f() {
+  /* get f() {
     return this.signInForm.controls;
-  }
-
-  onSubmit() {
-
-    this.submitted = true;
-
-    if (this.signInForm.invalid) {
-      return;
-    }
-
-  }
+  } */
 
   ngOnInit(): void {
 
-    this.signInForm = this.fb.group({
+    /* this.signInForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(4)]],
       password: ['', [Validators.required]]
+    }); */
+
+    this.activatedRoute.queryParamMap.subscribe(params => {
+      this.retUrl = params.get('retUrl');
+      console.log('LoginComponent/ngOnInit'+ this.retUrl);
     });
     
+  }
+
+  onFormSubmit(loginForm) {
+
+    this.authService.login(loginForm.value.username, loginForm.value.password).subscribe(data => {
+      console.log( 'return to ' + this.retUrl);
+      console.log(loginForm.value.username, loginForm.value.password);
+
+      if (this.retUrl != null) {
+        this.router.navigate([this.retUrl]);
+      }
+      else {
+        this.router.navigate(['dashboard']);
+      }
+    });
+
+    /* if (this.signInForm.invalid) {
+      return;
+    } */
+
   }
 
 }
