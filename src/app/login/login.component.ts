@@ -12,10 +12,10 @@ export class LoginComponent implements OnInit {
 
   title = 'Sign-in';
 
-  invalidCredentialMsg: string;
+  invalidCredentialMsg: boolean=false;
   username: string;
   password: string;
-  retUrl: string="login";
+  retUrl: string="dashboard";
   submitted = false;
 
   /* signInForm: FormGroup;
@@ -68,6 +68,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate([this.retUrl]);
       }
       else {
+        this.invalidCredentialMsg = true;
         this.router.navigate(['dashboard']);
       }
     });

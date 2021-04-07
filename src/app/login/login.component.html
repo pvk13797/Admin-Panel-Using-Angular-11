@@ -1,12 +1,12 @@
 <div class="container">
    <h2>{{ title | uppercase }}</h2>
-   <div *ngIf="invalidCredentialMsg" [ngClass]="error">{{invalidCredentialMsg}}</div>
    <form class="layout mt-5 shadow" #loginForm="ngForm" (ngSubmit)="onFormSubmit(loginForm)" novalidate>
+      <div *ngIf="invalidCredentialMsg" class="alert alert-danger">Invalid Username or Password.</div>
       <div class="row">
          <div class="col-xl-12">
             <div class="form-group">
                <label>Username</label>
-               <input type="text" name="username" class="form-control" ngModel required minlength="5"
+               <input type="text" name="username" class="form-control" ngModel required minlength="5" autofocus
                   #username="ngModel" [ngClass]="{'is-invalid': submitted && username.errors}" />
                <div *ngIf="username.invalid && (username.dirty || username.touched || submitted)" class="invalid-msg">
                   <p *ngIf="username.errors?.required">
@@ -24,7 +24,7 @@
             <div class="form-group">
                <label>Password</label>
                <input type="password" name="password" class="form-control" ngModel required #password="ngModel"
-                  [ngClass]="{'is-invalid': submitted && username.errors}" />
+                  [ngClass]="{'is-invalid': submitted && password.errors}" />
                <div *ngIf="password.invalid && (password.dirty || password.touched || submitted)" class="invalid-msg">
                   <p *ngIf="password.errors?.required">
                      Password required.
