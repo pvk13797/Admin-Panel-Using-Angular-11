@@ -29,7 +29,7 @@ export class AuthService {
      if(this.username === 'admin' && this.password === 'admin') {
        return true;
     }  
-     alert("Invalid credentials");
+     return false;
    }
 
    logoutUser(): void {

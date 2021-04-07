@@ -94,7 +94,7 @@ const routes: Routes = [
   { path: '**', 
     component: MainLayoutComponent,
     children: [
-      { path: '', component: PageNotFoundComponent}
+      { path: '', component: PageNotFoundComponent, canActivate: [AuthGuardService]}
     ]
   }
 

@@ -16,9 +16,10 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
   retUrl: string="login";
+  submitted = false;
 
   /* signInForm: FormGroup;
-  submitted = false;
+  
 
   login() {
 
@@ -56,6 +57,8 @@ export class LoginComponent implements OnInit {
   }
 
   onFormSubmit(loginForm) {
+
+    this.submitted = true;
 
     this.authService.login(loginForm.value.username, loginForm.value.password).subscribe(data => {
       console.log( 'return to ' + this.retUrl);
