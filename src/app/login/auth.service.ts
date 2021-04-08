@@ -18,7 +18,11 @@ export class AuthService {
      this.isLoggedIn = true;
      this.username=username;
      this.password=password;
-     return of(this.isLoggedIn);
+
+     if(this.username === 'admin' && this.password === 'admin') {
+       return true;
+     }
+     return false;
    }
 
    isUserLoggedIn(): boolean {

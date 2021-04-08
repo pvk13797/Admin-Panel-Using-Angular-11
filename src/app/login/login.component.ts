@@ -60,18 +60,17 @@ export class LoginComponent implements OnInit {
 
     this.submitted = true;
 
-    this.authService.login(loginForm.value.username, loginForm.value.password).subscribe(data => {
+    var op = this.authService.login(loginForm.value.username, loginForm.value.password);
       console.log( 'return to ' + this.retUrl);
       console.log(loginForm.value.username, loginForm.value.password);
+      // console.log(data);
 
-      if (this.retUrl != null) {
-        this.router.navigate([this.retUrl]);
+      if (op === true) {
+        this.router.navigate(['dashboard']);
       }
       else {
         this.invalidCredentialMsg = true;
-        this.router.navigate(['dashboard']);
       }
-    });
 
     /* if (this.signInForm.invalid) {
       return;
