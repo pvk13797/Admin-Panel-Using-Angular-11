@@ -1,5 +1,7 @@
 :link: [Live Demo](https://pvk13797.github.io/Admin-Panel-Using-Angular-11/login)
 
+# Admin Panel With Login Using Angular 11
+
 # Admin
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
